@@ -1,0 +1,14 @@
+!# i have these in my ~/.Xdefaults file
+
+!# may need these
+!# xqs*Background:    #c0c0c0
+!# xqs*Foreground:    Black
+
+xqs*wintree.background:		white
+xqs*geometry: 			700x550
+xqs*display_out*translations:	<Btn3Down>:	pref_popup()
+xqs*clients_out*translations:	<Btn3Down>: 	pref_popup()
+xqs*win_out*translations:	<Btn3Down>:	pref_popup()
+xqs*event_out*translations:	<Btn3Down>:	pref_popup()
+xqs*event_list*translations:	<Btn3Down>: 	pref_popup()
+xqs*access_out*translations:	<Btn3Down>: 	pref_popup()

@@ -1,0 +1,77 @@
+#
+# README for xqs
+#
+
+Version: 1.0
+
+Requirements:
+------------
+X11R5(4?)
+Motif 1.2
+
+
+To compile xqs:
+------------
+  1.  ./configure  (must supply base location of motif libs and headers 
+	if diff't from the X distribution, see command line option below )
+
+  2.  make
+
+  3.  If problems compiling do a "./configure --help" or edit the Makefile 
+      to suit your system
+
+
+Command line options for Configure
+-------------
+  --with-motif-dir=DIR		: Motif includes and libraries are in 
+				  DIR/include and DIR/lib respectively(only 
+				  needed if diff't from standard X libs
+  --with-motif-includes=DIR	: location of the Motif header files, overrides
+				  --with-motif-dir=DIR
+  --with-motif-libraries=DIR	: location of the Motif libraryfiles, overrides
+				  --with-motif-dir=DIR 
+  --x-includes=DIR		: X include files are in DIR
+  --x-libraries=DIR		: X libraries are in DIR
+  --help 			: displays all the command line option for
+				  configure 
+
+NOTE:  ./configure --help,  for a complete listing of command line options
+
+
+Tab Descriptions:
+------------
+Display: uses code from xdyinfo to print information associated with a display
+	connection
+Clients: uses code from xlsclients to print a list of the X clients running
+	on a display server
+Windows: uses code from xwininfo to print information associated with a 
+	window on a display, windows are selected in the WinTree list
+Properties: uses code from xprop to print the properties associated registered
+	with a display server
+Resources: prints the resources associated with a display, uses the 
+	RESOURCE_MANAGER property
+Access:	prints a hosts connection access status, i.e who can and cannot connect
+	to a display server
+
+
+Usage:
+-------
+- Button 3 pops up the preferences selection box for the currently active tab 
+as well as in the WinTree
+- Re-click the active folder's tab to update the folder with the most 
+current information
+
+
+Credits:
+----------
+Used the ListTree widget written by: 
+Robert W. McMullen <rwmcm@orion.ae.utexas.edu> 
+
+Used the Xg library and its Tab and ComboBox widgets written by:
+Gregory M. Messner, Copyright(c) 1995-1997 All rights reserved
+
+Also incorporated and adapted code from several of the standard X clients
+including xdyinfo, xlsclients, xwininfo and xprop
+
+
+-- brett (bretta@jove.acs.unt.edu)

@@ -1,0 +1,27 @@
+dnl ** Process this file with autoconf to produce a configure script.
+dnl ** for use with the Xb library
+
+AC_INIT(SelectInputTree.c)
+
+dnl Checks for programs.
+AC_PROG_CC
+
+dnl Checks for libraries.
+
+dnl ** Checks for header files.
+AC_PATH_X
+AC_ARG_WITH(motif-includes,[  --with-motif-includes=DIR\n                    \
+      location of motif header files], 
+motif_includes="-I $withval", motif_includes="" )
+
+dnl ** Checks for typedefs, structures, and compiler characteristics.
+
+dnl ** Checks for library functions.
+
+dnl ** substitute variables into Makefile.in
+AC_SUBST(x_includes)
+AC_SUBST(x_libraries)
+AC_SUBST(motif_includes)
+
+dnl ** create the Makefile from Makefile.in
+AC_OUTPUT(Makefile)

@@ -1,0 +1,29 @@
+TODO
+-------
+- in menu allow you to save a log of your current information
+- highlight the window in the winlist that has KB focus
+- create a button that allows you to select a window on the display
+- ability to search the WinTree for a window id or name
+- finish the events tab
+- add an event handler to handle DestroyWindow events so you can update the 
+wintree
+- rewrite with GTK+
+- better keyboard control
+	
+Known Bugs:
+-------
+-- not sure if the Access tab actually prints the hosts internet address
+	if the hostname isn't  found
+-- have had problems with seg faults when reading the RESOURCE_MANAGER 
+	property, has actually only happened on 1 machine, has something 
+	to do with the XmTextPrintf funtion
+
+==========================
+
+<<Version 1.0>>
+Last Updated -- Tue Jun  9 18:24:32 BST 1998
+-------
+first official release
+
+
+-- brett (bretta@jove.acs.unt.edu)

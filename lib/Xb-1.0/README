@@ -1,0 +1,65 @@
+#
+# README for the Xb library
+#
+
+Version 1.0
+
+Compilation
+-----------
+
+1.  ./configure (see configure options below)
+2.  make
+
+Configure Options
+-----------------
+	--with-motif-includes=DIR : location of the motif header files, needs
+to be specified if they are in a diff't base location than the X headers
+
+	--help : summary of misc. configure options
+
+
+Description
+----------
+
+  The Xb library is just a set of convenience and utility funtions for 
+programming with X and Motif.  
+
+
+/* same a XSelectInput but selects the event mask for the window
+ * and all of its children 
+ */
+void SelectInputTree( Display *display, Window toplevel, EventMask mask );
+
+/* pass an event's event.type member and return a string of the 
+ * event type
+ */
+String EventTypeToString( int event_type );
+
+/* pass and notify event's event.(event struct).detail member and
+ * return a String of the name of the detail
+ * for ** Notify Events ONLY **
+ */
+String NotifyDetailToString( int notify_detail );
+
+/* pass a notify event's event(event struct).mode member and
+ * return a String of the of the name of the mode 
+ * for ** Notify Events ONLY **
+ */
+String NotifyModeToString( int notify_mode );
+
+/* same as XFetchName but returns the String name of a windows
+ * WM_CLASS property
+ */
+Bool XFetchClass( Display *display, Window w, char **class_name_return );
+
+
+/* utitlity function for an XmText widget */
+void XmTextAppend( Widget w, char *buffer );
+void XmTextNewLine( Widget w );
+void XmTextClear( Widget w );
+
+/* utility functions function to manipulate the cursor */
+void SetWidgetCursor( Widget w, int cursor_shape );
+void UnsetWidgetCursor( Widget w );
+void SetWindowCursor( Display *dpy, Window w, int cursor_shape );
+void UnsetWindowCursor( Display *dpy, Window w ) ;

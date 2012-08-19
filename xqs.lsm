@@ -1,0 +1,18 @@
+Begin3
+Title:      	X Query Server (xqs)
+Version:   	1.0  09JUN98
+Entered-date:   09JUN98
+Description:    Retrieves information about an X display server and displays
+		it in a folder layout with a browsable window tree. Includes 
+		folders for the display, window, clients, properties, 
+		resources and access control.  Uses the standard X clients
+		for information retrieval when appropriate.		 
+Keywords:       xqs, XM, Motif
+Author:         brett adams (bretta@jove.acs.unt.edu)
+Maintained-by:  brett adams (bretta@jove.acs.unt.edu)
+Primary-site:   sunsite.unt.edu	 /pub/Linux/X11/xutils
+Alternate-site: 
+Original-site:  
+Platforms:      Linux, SunOS, Solaris, SVR4, FreeBSD, X11R4
+Copying-policy: GNU
+End

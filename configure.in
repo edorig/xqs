@@ -1,0 +1,49 @@
+dnl ** configure.in -- produce a configure script for xqs
+
+AC_INIT(src/DisplayTab.c)
+
+AC_PROG_CC
+
+AC_PATH_X
+dnl AC_FIND_X
+dnl AC_PATH_XTRA
+
+AC_STDC_HEADERS
+
+dnl ** set the location of the motif header files and libraries
+dnl ** to <motif-prefix>/include and <motif-prefix>/lib
+dnl ** will be overided by --with-motif-(includes,libraries)
+AC_ARG_WITH(motif-dir,[  --with-motif-dir=DIR   \
+ motif includes and libraries are in DIR/include and DIR/lib, respectively], \
+[motif_includes="-I$withval/include"
+ motif_libraries="-L $withval/lib -R $withval/lib"],                       \
+motif_includes="" motif_libraries="" )
+
+dnl ** location of motif header files
+AC_ARG_WITH(motif-includes,[  --with-motif-includes=DIR\n                    \
+      location of motif header files], motif_includes="-I $withval" )
+
+dnl ** location of the motif header files
+AC_ARG_WITH(motif-libraries,[  --with-motif-libraries=DIR\n                  \
+        location of motif libraries files],                             \
+ motif_libraries="-L $withval -R $withval" )
+
+dnl ** whether to define KDB_TAB, controls whether or not the Keyboard tab
+dnl ** will be usuable
+dnl AC_ARG_WITH(kbd-tab,[  --with-kbd-tab          enable the keyboard feature],\
+AC_ARG_WITH(kbd-tab,[], kbd_tab_def="-DKBD_TAB", kbd_tab_def="" )
+
+AC_ARG_WITH(exe, [  --with-exe=EXE          name of the executable], 
+[exe=$withval], [exe="xqs"] )
+
+dnl ** substitute variables into Makefile.in
+AC_SUBST(x_includes)
+AC_SUBST(x_libraries)
+AC_SUBST(motif_includes)
+AC_SUBST(motif_libraries)
+AC_SUBST(kbd_tab_def)
+AC_SUBST(exe)
+
+dnl ** create the Makefile from Makefile.in
+AC_OUTPUT(Makefile src/Makefile lib/Makefile lib/Xb-1.0/Makefile)
+
