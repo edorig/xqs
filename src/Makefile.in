@@ -31,7 +31,7 @@ X_INCLUDE = -I@x_includes@ @motif_includes@
 
 INCLUDE = -I@top_srcdir@/include 
 
-ALL_INCLUDES = $(INCLUDE) $(X_INCLUDE)
+ALL_INCLUDES = $(INCLUDE) 
 
 ###########################
 #
@@ -44,7 +44,7 @@ objs: $(OBJS)
 all:
 	cd .. ; make
 %.o: %.c
-	$(CC) -c $< $(CFLAGS) $(DEFS) $(ALL_INCLUDES) -o $@
+	$(CC) -c $< $(CFLAGS) $(DEFS) $(ALL_INCLUDES) 
 
 tidy:
 	rm -f core `find . -name '*.[as]' -print`

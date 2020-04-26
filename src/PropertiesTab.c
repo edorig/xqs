@@ -36,6 +36,8 @@
 
 #include "xqs.h"
 #include "Prefs.h"
+/*#include <strings.h> */ 
+#include <stdio.h>
 
 Window GetHighlightedWindow();
 void PutPropInfo( Window win );
@@ -151,7 +153,7 @@ Bool BAD_WINDOW;
 
 Window target_win=0;
 
-#define MAXSTR 10000
+#define MAXSTR 20000
 
 #define min(a,b)  ((a) < (b) ? (a) : (b))
 
@@ -684,7 +686,7 @@ Read_Mappings(stream)
  *
  */
 static char _formatting_buffer[MAXSTR+100];
-static char _formatting_buffer2[10];
+static char _formatting_buffer2[16];
 
 char *Format_Hex(wrd)
      long wrd;
@@ -973,7 +975,6 @@ char *Format_Thunk(t, format_char)
 {
   long value;
   value = t.value;
-
   switch (format_char) {
   case 's':
     return(Format_Len_String(t.extra_value, t.value));

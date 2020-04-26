@@ -9,6 +9,7 @@
 
 #include "xqs.h"
 
+
 Widget access_out;
 
 static binding _family_types[] = {
@@ -32,24 +33,29 @@ void AccessTabActive()
   XmTextClear( access_out );
   SetStatus( "Retrieving host access list..." );
   SetWidgetCursor( tab_form, XC_watch );
-
   /* get the access control list */
   xhosts = XListHosts( info_dpy, &nhosts, &access_enabled );
-  if( access_enabled == TRUE && nhosts > 0 ) {
-       for( i=0; i<nhosts; i++ ) {	    
-	    /* need to output the net number if the hostname is not found */
-	    hp = gethostbyaddr( xhosts[i].address, xhosts[i].length, AF_INET );
-	    if( !hp->h_name )
-		 memcpy( &in.s_addr, hp->h_addr_list[0], sizeof(in.s_addr) );
-	    
+      /* On Linux, there is always one allowed host, localhost, connected by AF_UNIX socket to the server. So we we need to print the allowed network hosts only if nhosts>1.  The first one is host 0, the last one is host nhost-1. */ 
+  if( access_enabled == TRUE && nhosts > 1 ) {
+    for( i=0; i<nhosts-1; i++ ) {	    
+	 /* need to output the net number if the hostname is not found */
+
+      /* Obsolete, getaddrinfo(3) should be used */ 
+	  hp = gethostbyaddr((void *)xhosts[i].address, (socklen_t) xhosts[i].length, AF_INET );
+	 
+	 if( !hp->h_name )  
+	   memcpy( &in.s_addr, hp->h_addr_list[0], sizeof(in.s_addr) );
+		 	  
 	    XmTextPrintf( access_out, "%s      %s\n",			  
 			  hp->h_name ? hp->h_name : inet_ntoa(in),
-			  Lookup(xhosts[i].family, _family_types) );	    
-       }
-  }  
-  else if( access_enabled == TRUE && nhosts == 0 )
-       XmTextAppend( access_out, "\n-- No hosts in access list! --\n" );
-  else /* access_enabled == FALSE <all host can connect to display> */
+			  Lookup(xhosts[i].family, _family_types) ); 
+
+	    
+	}
+  }
+  else if( access_enabled == TRUE && nhosts == 1 ) {
+           XmTextAppend( access_out, "\n-- No hosts in access list! --\n" );
+  } else /* access_enabled == FALSE <all host can connect to display> */
        XmTextSetString( access_out,
 			"Access control disabled, all hosts welcome.\n" );
   

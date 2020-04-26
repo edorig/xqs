@@ -13,8 +13,8 @@ CFLAGS = -Wall -ansi -pedantic -O2
 OBJS = XbEvent.o XbText.o XbCursor.o SelectInputTree.o
 
 # location of the X and motif header files
-X_INCLUDE = -I/usr/openwin/include
-XM_INCLUDE = -I/usr/dt/include
+X_INCLUDE = 
+XM_INCLUDE = 
 
 INCLUDE = $(X_INCLUDE) $(XM_INCLUDE)
 

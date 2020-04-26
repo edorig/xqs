@@ -75,3 +75,37 @@ including xdyinfo, xlsclients, xwininfo and xprop
 
 
 -- brett (bretta@jove.acs.unt.edu)
+
+
+Note:
+==== 
+
+Added 12/19/2015: 
+The Makefile.in files are defective, so the ./configure script 
+generates bad Makefiles. 
+
+I have tried to correct the Makefile.in files, by removing incorrect
+options, placing libraries in the logical order, fixing some syntax
+errors but I cannot ensure that the generated Makefiles will work
+correctly. In case compilation fails, it is easier anyway to correct 
+directly the generated Makefiles than to edit the Makefile.in files. 
+
+The only bug, once the program is compiled, is that clicking on
+"Properties" tab results in a Segmentation fault when the window manager 
+is CDE's dtwm but not with mwm. GDB is not very
+useful to locate the origin of the bug, it looks like a series of 195
+function calls: 
+[...]
+#188 0x616d656e in ?? ()
+#189 0x662e7363 in ?? ()
+#190 0x6765726f in ?? ()
+#191 0x6e756f72 in ?? ()
+#192 0x745c3a64 in ?? ()
+#193 0x63616c62 in ?? ()
+#194 0x226e5c6b in ?? ()
+#195 0x00000000 in ?? ()
+
+Maybe xqs does not support the multiple desktops of CDE.  
+
+The program does not crash with XFCE, Ol(v)wm,WindowMaker or Fvwm. 
+

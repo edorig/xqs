@@ -45,8 +45,8 @@
  *
  * ---FHDR--- */
 
-
-
+#include <stdlib.h> 
+#include <string.h> 
 #include <X11/Xlib.h>
 #ifdef _HPUX_SOURCE
 #  include <Xm/Xm.h>

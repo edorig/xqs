@@ -42,7 +42,7 @@
  * ---FHDR--- */
 
 #include <stdio.h>
-
+#include <stdlib.h> 
 
 /*
  * Include the Motif header file

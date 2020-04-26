@@ -28,11 +28,11 @@ DEFS = $(KBD_DEF)
 
 #
 # location of include files for the Xlib and Motif
-X_INCLUDE = -I/usr/openwin/include -I/usr/dt/include
+X_INCLUDE = -I 
 
 INCLUDE = -I../include 
 
-ALL_INCLUDES = $(INCLUDE) $(X_INCLUDE)
+ALL_INCLUDES = $(INCLUDE) 
 
 ###########################
 #
@@ -45,7 +45,7 @@ objs: $(OBJS)
 all:
 	cd .. ; make
 %.o: %.c
-	$(CC) -c $< $(CFLAGS) $(DEFS) $(ALL_INCLUDES) -o $@
+	$(CC) -c $< $(CFLAGS) $(DEFS) $(ALL_INCLUDES) 
 
 tidy:
 	rm -f core `find . -name '*.[as]' -print`

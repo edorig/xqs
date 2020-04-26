@@ -13,7 +13,7 @@ NONANSI_CFLAGS = -O2
 
 OBJS = Tabs.o ComboBox.o ListTree.o XgUtils.o x_rotate.o	
 
-X_INCLUDE = -I/usr/openwin/include -I/usr/dt/include
+X_INCLUDE = 
 INCLUDE = -I../include
 
 ALL_INCLUDES = $(INCLUDE) $(X_INCLUDE) 
@@ -32,12 +32,12 @@ libxqs.a: $(OBJS)
 	$(AR) $(ARFLAGS) $@ $?
 
 %.o: %.c
-	$(CC) -c $< $(ALL_INCLUDES) -o $@
+	$(CC) -c $< $(ALL_INCLUDES)
 
 $(LIBXBDIR)/libXb.a:
 	cd $(LIBXBDIR) ; make
 
-XgUtils.o:
+XgUtils.o: XgUtils.c
 	 $(CC) -c $< -D USE_XM_MWMUTIL_H $(NONANSI_CFLAGS) $(ALL_INCLUDES) -o $@
 
 clean:

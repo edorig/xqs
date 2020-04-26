@@ -32,10 +32,10 @@ EXE = @exe@
 
 #
 # location of include files for the Xlib and Motif
-X_INCLUDE = -I@x_includes@ @motif_includes@
+X_INCLUDE = 
 
 # location of the Xlib libraries
-LIBX = -R@x_libraries@ -L@x_libraries@
+LIBX = 
 
 #  Motif libraries
 LIBXM = @motif_libraries@ -lXm
@@ -53,7 +53,7 @@ LIBX11 = -lX11
 LIBXT = -lXt -lXmu
 
 # local library for xqs and the Xb lib
-LIBXQSDIR = @top_srcdir@/lib
+LIBXQSDIR = ./lib
 LIBXQS =  -L$(LIBXQSDIR)  -lxqs
 LIBXBDIR = $(LIBXQSDIR)/Xb-1.0
 LIBXB = -L$(LIBXBDIR) -lXb
@@ -62,8 +62,7 @@ SRCDIR= @top_srcdir@/src
 INCLUDE = -I @top_srcdir@/include
 
 # All of the above libraries
-ALL_X_LIBS = $(LIBX) $(LIBXM) $(LIBXAW) $(LIBXEXT) $(LIBXT) $(LIBX11) 	\
-	$(LIBXQS) $(LIBXB)
+ALL_X_LIBS = $(LIBXQS) $(LIBXB) $(LIBX) $(LIBXM) $(LIBXAW) $(LIBXEXT) $(LIBXT) $(LIBX11) 
 
 
 #####################

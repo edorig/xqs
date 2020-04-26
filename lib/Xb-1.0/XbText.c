@@ -12,7 +12,8 @@
 void XmTextPrintf( Widget wid, ... )
 {  
   char *format;
-  char str[2048];
+  /* Was 2048, too short for CDE's dtwm properties */ 
+  char str[16384];
   va_list args;
   int n;
 

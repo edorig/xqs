@@ -12,7 +12,7 @@ CFLAGS = -Wall -ansi -pedantic -O2
 OBJS = XbEvent.o XbText.o XbCursor.o SelectInputTree.o
 
 # location of the X and motif header files
-X_INCLUDE = -I@x_includes@
+X_INCLUDE = 
 XM_INCLUDE = @motif_includes@
 
 INCLUDE = $(X_INCLUDE) $(XM_INCLUDE)
